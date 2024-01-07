@@ -23,7 +23,7 @@ public class Post {
     private Long id;
     private String senderEmail;
     private String receiverEmail; //개인 이면 개인 UUID,  과목 Id, 전체면 전체 메시지 ALL.
-    private Type type; // UUID, LONG, ALL
+    private Type type; // UUID, MAJOR, ALL
     private String title;
     private String message;
     private boolean checkPost;

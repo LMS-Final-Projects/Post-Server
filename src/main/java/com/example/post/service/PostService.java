@@ -45,7 +45,7 @@ public class PostService {
     //쪽지 제목 보기
     @Transactional
     public List<PostRes> getAllPost(GetRequest getRequest){
-        List<PostDto> postDtoList = postRepository.findAllByUserEmail(getRequest.getUserEmail(), getRequest.getMajorId().toString()).get();
+        List<PostDto> postDtoList = postRepository.findAllByUserEmail(getRequest.getUserEmail(), getRequest.getLectureIds());
         List<PostRes> resultList = new ArrayList<>();
         for(PostDto post : postDtoList){
             resultList.add(new PostRes(post.toEntity()));
@@ -69,7 +69,7 @@ public class PostService {
                         .builder()
                         .senderEmail(request.getSenderEmail())
                         .receiverEmail(request.getLectureId())
-                        .type(Type.LONG)
+                        .type(Type.LECTURE)
                         .title(request.getTitle())
                         .message(request.getMessage())
                         .sendTime(LocalDateTime.now())

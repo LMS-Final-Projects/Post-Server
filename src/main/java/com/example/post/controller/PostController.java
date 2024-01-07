@@ -3,8 +3,10 @@ package com.example.post.controller;
 import com.example.global.response.LmsResponse;
 import com.example.post.dto.request.*;
 import com.example.post.dto.response.AllPostRes;
+import com.example.post.dto.response.InfoResponse;
 import com.example.post.dto.response.PostRes;
 import com.example.post.service.PostService;
+import jakarta.servlet.http.Cookie;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -72,6 +74,7 @@ public class PostController {
         postService.deletePosts(deleteRequest);
         return new LmsResponse<>(HttpStatus.OK, null, "서비스 성공", "", LocalDateTime.now());
     }
+
 
 
 

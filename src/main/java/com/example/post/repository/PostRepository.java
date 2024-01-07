@@ -15,8 +15,8 @@ import java.util.Optional;
 public interface PostRepository
         extends JpaRepository<Post,Long> {
 
-    @Query("select p from Post as p where p.receiverEmail = :userEmail or p.receiverEmail = :majorId")
-    Optional<List<PostDto>> findAllByUserEmail(@Param("userEmail") String userEmail, @Param("majorId")String majorId);
+    @Query("select p from Post as p where p.receiverEmail = :userEmail or p.receiverEmail IN :lectureIds")
+    List<PostDto> findAllByUserEmail(@Param("userEmail") String userEmail, @Param("lectureIds")List<Long> lectureIds);
 
     @Query("select m.message from Post as m where m.id = :id")
     Optional <PostDto> findMessageById(@Param("id")Long id);

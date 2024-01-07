@@ -50,7 +50,7 @@ public class GroupPostRes {
                 .id(id)
                 .senderEmail(senderEmail)
                 .receiverEmail(receiverEmail)
-                .type(Type.LONG)
+                .type(Type.LECTURE)
                 .message(message)
                 .sendTime(sendTime)
                 .checkPost(false)
